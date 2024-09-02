@@ -3,12 +3,19 @@
 using namespace std;
 using ll = long long;
 
-// region
 template<typename T>
-istream &operator>>(istream &is, vector<T> &vec);
+istream &operator>>(istream &is, vector<T> &vec) {
+    for (auto &i : vec)
+        is >> i;
+    return is;
+}
 
 template<typename T>
-ostream &operator<<(ostream &os, vector<T> &vec);
+ostream &operator<<(ostream &os, vector<T> &vec) {
+    for (auto &x : vec)
+        os << x << " ";
+    return (os << "\n");
+}
 
 inline void io() {
 #ifdef LOCAL
@@ -19,35 +26,7 @@ inline void io() {
     cin.tie(nullptr);
 #endif
 }
-// endregion
 
 int main() {
     io();
-    int n;
-    cin >> n;
-    int cnt = 0;
-    for (int i = 0; i * i <= n; ++i) {
-        if (n % i == 0) {
-            ++cnt;
-        }
-    }
-    cout << cnt;
 }
-
-// region
-template<typename T>
-ostream &operator<<(ostream &os, vector<T> &a) {
-    for (auto &x : a) {
-        os << x << " ";
-    }
-    os << "\n";
-    return os;
-}
-
-template<typename T>
-istream &operator>>(istream &is, vector<T> &a) {
-    for (auto &i : a)
-        is >> i;
-    return is;
-}
-// endregion
